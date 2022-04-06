@@ -1,0 +1,47 @@
+@using Packt.Shared
+
+@model IEnumerable<Customer>
+
+@{
+    ViewData["Title"] = "Customer Search and Delete";
+    int i = 1;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Customers Search</h1>
+    <p>Search and delete customers easily :)</p>
+</div>
+
+@if (Model is not null)
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Customer Id</th>
+                <th scope="col">Contact Name</th>
+                <th scope="col">City</th>
+                <th scope="col">Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Customer customer in @Model)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@customer.CustomerId</td>
+                    <td>@customer.ContactName</td>
+                    <td>@customer.City</td>
+                    <td>@customer.Phone</td>
+                    <td>
+                        <form class="row g-3" method="DELETE" asp-action="Delete">
+                            <input type="hidden" name="Id" value=@customer.CustomerId />
+                            <button type="submit" class="btn-close" />
+                        </form>
+                    </td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+}

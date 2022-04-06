@@ -1,0 +1,58 @@
+@page
+@using Packt.Shared;
+@model Northwind.Web.Pages.CustomerOrdersModel;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="row">
+    <h1 class="display-2">Customer Info</h1>
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Contact Name</th>
+                <th>Contact Title</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Customer is not null)
+            {
+                <tr>
+                    <td>@Model.Customer.ContactName</td>
+                    <td>@Model.Customer.ContactTitle</td>
+                    <td>@Model.Customer.Phone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <h1 class="display-2">Orders</h1>
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Order Id</th>
+                <th>Order Date</th>
+                <th>Ship Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Customer.Orders is not null)
+            {
+                @foreach (Order order in Model.Customer.Orders)
+                {
+                    <tr>
+                        <td>@order.OrderId</td>
+                        <td>@order.OrderDate</td>
+                        <td>@order.ShipCountry</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <p>
+        <a class="btn btn-primary" href="customers">Go back</a>
+    </p>
+</div>

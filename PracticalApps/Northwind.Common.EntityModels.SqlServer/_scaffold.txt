@@ -1,0 +1,1 @@
+dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;MultipleActiveResultSets=true;Encrypt=false" Microsoft.EntityFrameworkCore.SqlServer --namespace Packt.Shared --data-annotations

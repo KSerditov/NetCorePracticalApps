@@ -1,0 +1,91 @@
+            modelBuilder.Entity<AlphabeticalListOfProduct>(entity =>
+            {
+                entity.ToView("Alphabetical list of products");
+            });
+
+            modelBuilder.Entity<CategorySalesFor1997>(entity =>
+            {
+                entity.ToView("Category Sales for 1997");
+            });
+
+            modelBuilder.Entity<CurrentProductList>(entity =>
+            {
+                entity.ToView("Current Product List");
+
+                entity.Property(e => e.ProductId).ValueGeneratedOnAdd();
+            });
+
+            
+            modelBuilder.Entity<CustomerAndSuppliersByCity>(entity =>
+            {
+                entity.ToView("Customer and Suppliers by City");
+            });
+
+                        modelBuilder.Entity<Invoice>(entity =>
+            {
+                entity.ToView("Invoices");
+
+                entity.Property(e => e.CustomerId).IsFixedLength();
+            });
+
+            
+            modelBuilder.Entity<OrderDetailsExtended>(entity =>
+            {
+                entity.ToView("Order Details Extended");
+            });
+
+            modelBuilder.Entity<OrderSubtotal>(entity =>
+            {
+                entity.ToView("Order Subtotals");
+            });
+
+            modelBuilder.Entity<OrdersQry>(entity =>
+            {
+                entity.ToView("Orders Qry");
+
+                entity.Property(e => e.CustomerId).IsFixedLength();
+            });
+
+
+            modelBuilder.Entity<ProductSalesFor1997>(entity =>
+            {
+                entity.ToView("Product Sales for 1997");
+            });
+
+            modelBuilder.Entity<ProductsAboveAveragePrice>(entity =>
+            {
+                entity.ToView("Products Above Average Price");
+            });
+
+            modelBuilder.Entity<ProductsByCategory>(entity =>
+            {
+                entity.ToView("Products by Category");
+            });
+
+            modelBuilder.Entity<QuarterlyOrder>(entity =>
+            {
+                entity.ToView("Quarterly Orders");
+
+                entity.Property(e => e.CustomerId).IsFixedLength();
+            });
+
+
+            modelBuilder.Entity<SalesByCategory>(entity =>
+            {
+                entity.ToView("Sales by Category");
+            });
+
+            modelBuilder.Entity<SalesTotalsByAmount>(entity =>
+            {
+                entity.ToView("Sales Totals by Amount");
+            });
+
+            modelBuilder.Entity<SummaryOfSalesByQuarter>(entity =>
+            {
+                entity.ToView("Summary of Sales by Quarter");
+            });
+
+            modelBuilder.Entity<SummaryOfSalesByYear>(entity =>
+            {
+                entity.ToView("Summary of Sales by Year");
+            });

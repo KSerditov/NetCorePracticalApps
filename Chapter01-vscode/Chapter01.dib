@@ -1,0 +1,12 @@
+#!csharp
+
+Console.WriteLine("Hello!");
+
+#!markdown
+
+# Chapter 1
+Mixing *text* and **text** and code
+
+#!csharp
+
+#!about

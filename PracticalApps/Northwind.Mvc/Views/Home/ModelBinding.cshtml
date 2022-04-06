@@ -1,0 +1,43 @@
+@model HomeModelBindingViewModel
+
+@{
+    ViewData["Title"] = "Model Binding Demo";
+}
+
+<h1>Model Binding Demo</h1>
+<div>
+    Enter values for Thing model binding:
+</div>
+<form method="POST" action="/Home/ModelBinding/">
+    <input name="id" value="1" />
+    <input name="color" value="Red" />
+    <input name="email" value="test@gmail.com" />
+    <input type="submit" />
+</form>
+@if (Model != null)
+{
+    <h2>Submitted model</h2>
+    <hr />
+    <div>
+        <dl class="dl-horizontal">
+            <dt>Model.Id</dt>
+            <dd>@Model.thing.Id</dd>
+            <dt>Model.Color</dt>
+            <dd>@Model.thing.Color</dd>
+            <dt>Model.Email</dt>
+            <dd>@Html.DisplayFor(model => model.thing.Email)</dd>
+        </dl>
+    </div>
+    @if (Model.HasErrors)
+    {
+        <div>
+            @foreach (string error in Model.ValidationErrors)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @error
+                </div>
+            }
+        </div>
+    }
+}
+

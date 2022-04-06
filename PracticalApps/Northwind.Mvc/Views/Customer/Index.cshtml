@@ -1,0 +1,91 @@
+@using Packt.Shared
+
+@model GenericErrorViewModel<Customer>;
+
+@{
+    ViewData["Title"] = "Customer Creation Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Create Customer</h1>
+</div>
+
+@if (Model != null)
+{
+    @if (Model.HasErrors)
+    {
+        <div>
+            @foreach (string error in Model.ValidationErrors)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @error
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+
+        <div class="alert alert-success" role="alert">
+            Customer ID @Model.entity.CustomerId successfully created!
+        </div>
+    }
+}
+
+<form class="row g-3" method="POST" asp-action="Create">
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label for="CustomerId">Customer ID</label>
+            <input name="CustomerId" type="text" class="form-control" id="CustomerId" placeholder="12456" />
+        </div>
+        <div class="col-md-6">
+            <label for="CompanyName">Company Name</label>
+            <input name="CompanyName" type="text" class="form-control" id="CompanyName" placeholder="Microsoft Inc." />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label for="ContactTitle">Contact Title</label>
+            <input type="text" class="form-control" id="ContactTitle" name="ContactTitle" placeholder="Dr.">
+        </div>
+        <div class="col-md-6">
+            <label for="ContactName">Contact Name</label>
+            <input type="text" class="form-control" id="ContactName" name="ContactName" placeholder="Julia Child">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Address">Address</label>
+        <input name="Address" class="form-control" type="text" id="Address" placeholder="123 Main Street" />
+    </div>
+    <div class="form-group row">
+        <div class="col-md-4">
+            <label for="City">City</label>
+            <input name="City" class="form-control" type="text" placeholder="St Petersburg" />
+        </div>
+        <div class="col-md-4">
+            <label for="Region">Region</label>
+            <input name="Region" class="form-control" type="text" placeholder="St Petersburg" />
+        </div>
+        <div class="col-md-2">
+            <label for="PostalCode">PostalCode</label>
+            <input name="PostalCode" class="form-control" type="text" placeholder="193315" />
+        </div>
+        <div class="col-md-4">
+            <label for="Country">Country</label>
+            <input name="Country" class="form-control" type="text" placeholder="Russia" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label for="Phone">Phone</label>
+            <input name="Phone" class="form-control" type="text" placeholder="1234567" />
+        </div>
+        <div class="col-md-6">
+            <label for="Fax">Fax</label>
+            <input name="Fax" class="form-control" type="text" placeholder="1234567" />
+        </div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>
